@@ -1,32 +1,28 @@
 package main
 
 import (
-	"encoding/json"
-	"io"
+	"fmt"
 	"log"
-	"net/http"
+	"os"
+	"strconv"
 
+	"github.com/joho/godotenv"
 	"github.com/valindo/demyst-assignment/utils"
 )
 
 func main() {
-	baseUrl := "https://jsonplaceholder.typicode.com/todos"
-	iterations := 20
-	urls := utils.GenerateURL(baseUrl, iterations)
-	// var todos []utils.ResponseBody
-	for _, url := range urls {
-		var data utils.ResponseBody
-		res, err := http.Get(url)
-		if err != nil {
-			log.Fatal(err)
-		}
-		body, readErr := io.ReadAll(res.Body)
-		if readErr != nil {
-			log.Fatal(err)
-		}
-		json.Unmarshal(body, &data)
-		data.Details()
-		// todos = append(todos, data)
-		res.Body.Close()
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Could not load .env file")
+		log.Fatal(err)
 	}
+	baseUrl := os.Getenv("URL")
+	iterations, err := strconv.Atoi(os.Getenv("ITERATIONS"))
+	if err != nil {
+		log.Fatal("Failed to retrive ITERATIONS env variable")
+		log.Fatal(err)
+	}
+	fmt.Println("Application loading todos....")
+	utils.Display(baseUrl, iterations)
+
 }

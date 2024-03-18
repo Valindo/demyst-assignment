@@ -2,7 +2,7 @@
 
 ## Contents
 1. [Description](#Description)
-2. [Setup and prerequisite](#Setup)
+2. [Setup and prerequisite](#Setup-and-prerequisite)
 3. [Testing](#Testing)
 4. [Docker commands](#Docker-commands)
 5. [Notes](#Notes)

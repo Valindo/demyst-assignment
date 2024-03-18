@@ -2,7 +2,7 @@
 
 ## Contents
 1. [Description](#Description)
-2. [Setup](#Setup)
+2. [Setup and prerequisite](#Setup)
 3. [Testing](#Testing)
 4. [Docker commands](#Docker-commands)
 5. [Notes](#Notes)
@@ -10,7 +10,8 @@
 ## Description
 The following application fetch's todos from https://jsonplaceholder.typicode.com/todos, the requirement was to fetch the first 20 even todos and display them to indicate if they are completed or not
 
-## Setup
+## Setup and prerequisite
+Please make sure you have `>=go:1.21` setup locally if you want to run this without docker
 
 Clone the repository first
 ```
